@@ -24,7 +24,8 @@
   "scripts": {
     "dev": "cd playground && vite",
     "build": "gulp --require sucrase/register/ts -f scripts/build/gulpfile.ts",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm publish --access public",
+    "prepublishOnly": "pnpm run build",
+    "release": "bumpp package.json --commit --push --tag && pnpm publish",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest"
